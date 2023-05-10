@@ -9,10 +9,13 @@ for i in ''.join(filter(str.islower, str_2.lower())) :
     for j in range(len(str_1)) :
         if i == str_1.lower()[j] :
             spis.append(j+1)
+
+    # if spis is empty
     if len(spis) == 0 :
         out[i] = None
         continue
     key, value = i, spis.copy()
+
     out.update({key: value})
     spis.clear()
 

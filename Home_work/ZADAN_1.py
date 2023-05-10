@@ -17,3 +17,4 @@ print('№ \t словосочетание \t количество повтор�
 for key, value in sorted(d.items(), key=lambda x: -x[1]) :
     print('{:<5} {:<30} {:<3}'.format(i, key, value))
     i +=1
+
