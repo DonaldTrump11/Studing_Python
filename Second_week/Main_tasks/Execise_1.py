@@ -3,8 +3,6 @@ import os
 import json
 import tempfile
 
-
-
 try :
     a = str(sys.argv[1])
 except: 
@@ -21,10 +19,6 @@ try :
     d = str(sys.argv[4])
 except :
     d = None
-    
-
-
-
 
 # Вывод словаря из файла
 def vivod() :
@@ -32,8 +26,6 @@ def vivod() :
         capitals_json = my_file.read()
     capitals = json.loads(capitals_json)
     return capitals
-
-
 
 def vvod(key_, value_):
     with open("/home/alex/Рабочий стол/project_1/capitals.json", "r", encoding="utf-8") as my_file:
@@ -54,7 +46,7 @@ def vvod(key_, value_):
     return None
 
 
-if a == "--key" and c == "--values":
+if a == "--key" and c == "--val":
     vvod(b, d)
 if a == "--key" and c == None:
     try:
@@ -64,3 +56,8 @@ if a == "--key" and c == None:
             print(vivod()[b])
     except:
         print(None)
+
+
+
+
+
