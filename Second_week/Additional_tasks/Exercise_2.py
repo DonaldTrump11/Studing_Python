@@ -12,9 +12,20 @@ def create_matrix(size):
             strok.append(None)
         list_.append(strok)
     
-    return list
+    return list_
 
-def add_element(element, matrix) :
+
+def add_element(element, matrix):
+    """
+    Функция добавляет element в матрицу matrix и при необходимости изменяет размер
+    матрицы. Возвращает полученную матрицу.
+    :param element: string
+    :param matrix: list
+    :return: list
+    """
+    # Проверим добавляемый элемент. Если это None - мы его не добавляем
+    if element == None :
+        return matrix
     
     # Если последний мы добавляем элемент на место первого стольца последний строки, то увеличиваем размер матрица на один
     if matrix[len(matrix)-2][len(matrix)-1] != None :
@@ -49,6 +60,10 @@ def add_element(element, matrix) :
         # Теперь новая матрица это основная 
         matrix = new_matrix
         
+    # Если добавляемый элемент None, сделаем его строкой
+    #if element == None :
+    #   element = "None"
+        
     # Запишем новый элемент в матрицу
     size = len(matrix)
     flag = False
@@ -62,3 +77,20 @@ def add_element(element, matrix) :
             break
         
     return matrix
+
+
+def matrix_to_string(matrix):
+    """
+    Функция создает строковое представление matrix - строку, в которой строки матрицы 
+    разделены переносом строки, а элементы строки разделены пробелами.
+    :param matrix: list
+    :return: string
+    """
+    delimeter = " "
+    strok = ''
+    for row in matrix :
+        j = ['None' if v is None else v for v in row]
+        k = [str(v) if type(v) != str else v for v in j]
+        strok += delimeter.join(k) + '\n'
+        
+    return strok[:-1]
